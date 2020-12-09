@@ -12,3 +12,5 @@ docker run -it -d \
 -v /app/nginx/conf.d:/etc/nginx/conf.d/default.conf \
 -v /var/run/docker.sock:/tmp/docker.sock:ro \
 docker.io/jwilder/nginx-proxy
+
+new
