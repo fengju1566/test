@@ -1,0 +1,14 @@
+1.创建挂载目录
+mkdir -p /app/nginx/{conf,conf.d,html,logs}
+2.编写nginx配置文件，放入对应文件夹中
+包括nginx.conf html.index等
+3.启动容器，挂载配置文件
+docker run -it -d \
+--name testnginx \
+-p 8888:80 \
+-v /app/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+-v /app/nginx/html:/var/www/html \
+-v /app/nginx/logs/:/var/log/nginx \
+-v /app/nginx/conf.d:/etc/nginx/conf.d/default.conf \
+-v /var/run/docker.sock:/tmp/docker.sock:ro \
+docker.io/jwilder/nginx-proxy
